@@ -42,13 +42,18 @@ a.header:hover{
   color:#B20000;
 }
 
+.bar{
+
+}
+
 .bar-subheader{
   height:30px;
-  background-color:#E2E2E2;
+  background-color:#fff;
 }
 
 .move_up{
   position:relative;
+  top:70px;
 }
 
 a.card-info h3{
@@ -65,7 +70,8 @@ a.card-info h4{
 
 a.card-info h5{
   font-size:11px !important;
-  font-weight:normal;
+  font-weight:bold;
+  text-transform:uppercase;
   margin-top:-3px;
 }
 
@@ -90,4 +96,19 @@ a.card-info h5{
   font-size:14px;
   font-weight:bold;
   margin:3px 0px 0px 8px;
+}
+
+span.btn-block{
+  position:absolute;
+  bottom:15px;
+  left:180px;
+  float:right;
+  z-index:1000;
+
+}
+
+i.circle-icon {
+    padding:10px;
+    border-radius: 50%;
+    border:1px solid #B2B2B2;
 }
