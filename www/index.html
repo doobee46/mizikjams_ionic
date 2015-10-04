@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar bar-header bar-assertive main_red">
+       <button class="icon ion-navicon button button-clear"></button>
+         <h1 class="title"><img class="title-image" src="img/logo.png" alt="logo"></h1>
+      <a href="#" class=" button button-clear btn-cap">
+      <!--<i class="icon icon-right ion-android-arrow-dropdown">
+      </i>--> Browse
+      </a>
+      </ion-header-bar>
+      <ion-header-bar class="bar-subheader">
+        <ion-scroll direction="x" class="wide-as-needed">
+          <a class="header">PREMIERES</a>
+          <a class="header">HOT THIS WEEK</a>
+          <a class="header">TOP 20
+          <a class="header">SPOTLIGHT</a>
+          <a class="header">LIVE CONCERT</a>
+          <a class="header">TOP ARTISTS</a>
+          <a class="header">TOP PLAYLISTS</a>
+        </a></ion-scroll>
+      </ion-header-bar>
+      <ion-content class="move_up">
+        <div class="list inset">
+            <div class="item item-image">
+              <img src="img/confessions.jpg">
+              <div class="btn_play">
+                <img src="img/btn_play.png" alt="play">
+              </div>
+            </div>
+             <a href="#" class="item card-info">
+              <h3>NU LOOK</h3>
+              <h4>CONFESSIONS</h4>
+              <h5><i class="icon icon-left ion-ios-heart"></i>24k likes</h5>
+              <span class="btn-block">
+                <a href="#" class=" button button-clear">
+                  <i class=" button icon ion-ios-heart">
+                  </i>
+                </a>
+                <a href="#" class=" button button-clear">
+                   <i class="button icon ion-plus">
+                   </i>
+                </a>
+              </span>
+            </a>
+            <div class="premiere_flag">
+              <h2>PREMIERE</h2>
+            </div>
+        </div>
+         <div class="list inset">
+            <div class="item item-image">
+              <img src="img/se_konsa.jpg">
+              <div class="btn_play">
+                <img src="img/btn_play.png" alt="play">
+              </div>
+            </div>
+             <a href="#" class="item card-info">
+              <h3>DAT7</h3>
+              <h4>SE KONSA</h4>
+              <h5><i class="icon icon-left ion-ios-heart"></i>10k likes</h5>
+            </a>
+            <div class="premiere_flag">
+              <h2>PREMIERE</h2>
+            </div>
+
+        </div>
+        <div class="list inset">
+            <div class="item item-image">
+              <img src="img/move_siyal.jpg">
+              <div class="btn_play">
+                <img src="img/btn_play.png" alt="play">
+              </div>
+            </div>
+             <a href="#" class="item card-info">
+              <h3>KLASS</h3>
+              <h4>MOVE SIYAL</h4>
+              <h5><i class="icon icon-left ion-ios-heart"></i>4k likes</h5>
+            </a>
+            <div class="premiere_flag">
+              <h2>PREMIERE</h2>
+            </div>
+        </div>
+        <div class="list inset">
+            <div class="item item-image">
+              <img src="img/konsa.jpg">
+              <div class="btn_play">
+                <img src="img/btn_play.png" alt="play">
+              </div>
+            </div>
+             <a href="#" class="item card-info">
+              <h3>PHYLISSIA ROSS</h3>
+              <h4>KONSA</h4>
+              <h5><i class=" icon icon-left ion-ios-heart"></i>40k likes</h5>
+            </a>
+            <div class="premiere_flag">
+              <h2>PREMIERE</h2>
+            </div>
+        </div>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
