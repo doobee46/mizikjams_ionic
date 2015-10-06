@@ -22,6 +22,8 @@ a.btn-cap i{
 .wide-as-needed {
   overflow: none;
   white-space: nowrap;
+  position:relative;
+  top:5px;
 }
 
 .scroll {
@@ -42,12 +44,8 @@ a.header:hover{
   color:#B20000;
 }
 
-.bar{
-
-}
-
 .bar-subheader{
-  height:30px;
+  height:42px;
   background-color:#fff;
 }
 
@@ -56,19 +54,21 @@ a.header:hover{
   top:70px;
 }
 
-a.card-info h3{
-  font-size:16px;
+.card-info h3{
+  font-size:15px;
   font-weight:bold;
   color:#B20000;
+  text-transform:uppercase;
 }
 
-a.card-info h4{
+.card-info h4{
   font-size:12px !important;
   font-weight:normal;
   margin-top:-5px;
+  text-transform:uppercase;
 }
 
-a.card-info h5{
+.card-info h5{
   font-size:11px !important;
   font-weight:bold;
   text-transform:uppercase;
@@ -77,14 +77,14 @@ a.card-info h5{
 
 .btn_play {
   position:absolute;
-  top:70px;
-  left:150px;
+  top:45px;
+  left:143px;
   z-index:1000;
 }
 
 .premiere_flag{
   position:absolute;
-  top:20px;
+  top:25px;
   z-index:1000;
   background-color:#B20000;
   width:88px;
@@ -100,11 +100,26 @@ a.card-info h5{
 
 span.btn-block{
   position:absolute;
-  bottom:15px;
-  left:180px;
+  bottom:10px;
+  right:8px;
   float:right;
   z-index:1000;
 
+}
+
+.overflow {
+  width: 150px;
+  margin: 0 0 2em 0;
+
+  /**
+   * Required properties to achieve text-overflow
+   */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ellipsis{
+  text-overflow: ellipsis;
 }
 
 i.circle-icon {

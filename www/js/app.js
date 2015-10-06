@@ -17,3 +17,36 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+
+.controller('videoController', function($scope, $http) {
+  $scope.videos = null
+  $http.get("http://mizikjams.com/api/videos.json")
+  .success(function (data) {$scope.videos = data.videos});
+
+  $scope.moredata = false; debugger;
+    $scope.loadMoreData=function(){
+        $scope.item.push({id: $scope.item.length});
+        if($scope.item.length==8)
+        {
+            $scope.moredata=true;
+        }
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    };
+
+  $scope.items=[];
+
+  $scope.doRefresh=function(){
+     $http.get("http://mizikjams.com/api/videos.json")
+     .success(function (data) {
+     $scope.videos = data.videos;
+     $scope.$broadcast('scroll.refreshComplete');
+
+    });
+
+  }
+
+});
+
+
+
