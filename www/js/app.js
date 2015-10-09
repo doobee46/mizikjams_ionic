@@ -18,32 +18,33 @@ angular.module('starter', ['ionic'])
   });
 })
 
-
-.controller('videoController', function($scope, $http) {
+.controller('videoController', function($scope, $http, $ionicSideMenuDelegate, $ionicLoading) {
   $scope.videos = null
-  $http.get("http://mizikjams.com/api/videos.json")
-  .success(function (data) {$scope.videos = data.videos});
 
-  $scope.moredata = false; debugger;
-    $scope.loadMoreData=function(){
-        $scope.item.push({id: $scope.item.length});
-        if($scope.item.length==8)
-        {
-            $scope.moredata=true;
-        }
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-    };
+  $ionicLoading.show({
+    template:'<ion-spinner icon="dots"></ion-spinner>',
+    hideOnStageChange: true
 
-  $scope.items=[];
+  })
+  $http.get("http://mizikjams.com/api/videos.json?callback=JSON_CALLBACK")
+  .success(function (data) {
+    $ionicLoading.hide()
+    $scope.videos = data.videos
+
+  });
 
   $scope.doRefresh=function(){
-     $http.get("http://mizikjams.com/api/videos.json")
+     $http.get("http://mizikjams.com/api/videos.json?callback=JSON_CALLBACK")
      .success(function (data) {
      $scope.videos = data.videos;
      $scope.$broadcast('scroll.refreshComplete');
 
     });
 
+  }
+
+  $scope.toggleLeft = function(){
+    $ionicSideMenuDelegate.toggleLeft();
   }
 
 });

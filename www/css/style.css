@@ -127,3 +127,10 @@ i.circle-icon {
     border-radius: 50%;
     border:1px solid #B2B2B2;
 }
+
+.spinner svg {
+  width: 32px;
+  height: 32px;
+  stroke: #FFF;
+  fill: #BA1F1F;
+}

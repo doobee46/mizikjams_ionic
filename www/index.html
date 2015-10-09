@@ -23,13 +23,14 @@
     <script src="js/app.js"></script>
   </head>
   <body ng-app="starter" ng-controller="videoController">
+  <ion-side-menus>
+  <ion-side-menu-content>
   <ion-header-bar class="bar bar-header bar-assertive main_red">
-   <button class="icon ion-navicon button button-clear"></button>
-     <h1 class="title"><img class="title-image" src="img/logo.png" alt="logo"></h1>
-  <a href="#" class=" button button-clear">
-  <i class="icon icon-right ion-ios-film-outline">
-  </i>
-  </a>
+    <button class="icon ion-navicon button button-clear" ng-click="toggleLeft()"></button>
+    <h1 class="title"><img class="title-image" src="img/logo.png" alt="logo"></h1>
+      <div class="buttons">
+        <button class="button button-clear icon ion-gear-a"></button>
+      </div>
   </ion-header-bar>
   <ion-header-bar class="bar-subheader">
     <ion-scroll direction="x" class="wide-as-needed">
@@ -42,11 +43,11 @@
       <a class="header">TOP PLAYLISTS</a>
     </a></ion-scroll>
   </ion-header-bar>
-      <ion-content class"has-subheader"="">
+   <ion-content class="has-subheader">
       <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-      <div class="list" ng-repeat="item in videos">
+      <div class="list card" ng-repeat="item in videos">
         <div class="item item-image">
-          <img src="{{item.image}}">
+          <img ng-src="{{item.image}}">
         </div>
         <div class="item card-info">
           <h3 class="overflow ellipsis">{{ item.band }}</h3>
@@ -70,8 +71,25 @@
           <img src="img/btn_play.png" alt="play">
         </div>
       </div>
-      <ion-infinite-scroll distance="2" on-infinite="loadMoreData()" ng-if="!moredata">
+      <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="2%">
       </ion-infinite-scroll>
     </ion-content>
+  </ion-side-menu-content>
+    <ion-side-menu side="left">
+      <ion-list>
+        <ion-item>Home</ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>Mizikjams TV</ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>Browse</ion-item>
+      </ion-list>
+       <ion-list>
+        <ion-item>Settings</ion-item>
+      </ion-list>
+   </ion-side-menu>
+  </ion-side-menus>
+
   </body>
 </html>
