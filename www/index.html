@@ -48,11 +48,15 @@
       <div class="list card" ng-repeat="item in videos">
         <div class="item item-image">
           <img ng-src="{{item.image}}">
+          <div class="btn_play">
+            <button class="button button-clear">
+              <img src="img/btn_play.png" alt="play" ng-click="playVideo()">
+           </button>
+        </div>
         </div>
         <div class="item card-info">
           <h3 class="overflow ellipsis">{{ item.band }}</h3>
           <h4>{{ item.title }}</h4>
-          <h5><i class="icon icon-left ion-eye"></i>{{item.views}} views</h5>
         </div>
         <span class=" item-text-wrap btn-block">
           <a href="#" class=" button button-clear circle">
@@ -64,12 +68,13 @@
              </i>
           </a>
         </span>
+        <div class="view_box">
+          <h5><i class="icon icon-left ion-eye"></i>{{item.views}} views</h5>
+        </div>
         <div class="premiere_flag">
            <h2>PREMIERE</h2>
         </div>
-        <div class="btn_play">
-          <img src="img/btn_play.png" alt="play">
-        </div>
+
       </div>
       <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="2%">
       </ion-infinite-scroll>
