@@ -154,3 +154,14 @@ i.circle-icon {
   padding: 50px;
   text-align: center;
 }
+
+.no-results {
+  color: gray;
+  font-size: 20px;
+  padding: 50px;
+  text-align: center;
+}
+
+.filter-bar{
+  background-color: main_red !important;
+}

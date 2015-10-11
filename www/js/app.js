@@ -18,7 +18,7 @@ angular.module('starter', ['ionic', 'jett.ionic.filter.bar'])
   });
 })
 
-.controller('videoController', function($scope, $http, $ionicSideMenuDelegate, $ionicLoading, $ionicFilterBar) {
+.controller('videoController', function($scope, $http,$timeout, $ionicSideMenuDelegate, $ionicLoading, $ionicFilterBar) {
   $scope.videos = null
 
   $ionicLoading.show({
@@ -27,7 +27,7 @@ angular.module('starter', ['ionic', 'jett.ionic.filter.bar'])
 
   })
 
-  $http.get("http://mizikjams.com/api/videos.json?callback=JSON_CALLBACK")
+  $http.get("http://mizikjams.com/api/videos.json")
   .success(function (data) {
     $ionicLoading.hide()
     $scope.videos = data.videos
@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'jett.ionic.filter.bar'])
   });
 
   $scope.doRefresh=function(){
-     $http.get("http://mizikjams.com/api/videos.json?callback=JSON_CALLBACK")
+     $http.get("http://mizikjams.com/api/videos.json")
      .success(function (data) {
      $scope.videos = data.videos;
      $scope.$broadcast('scroll.refreshComplete');
@@ -48,4 +48,40 @@ angular.module('starter', ['ionic', 'jett.ionic.filter.bar'])
     $ionicSideMenuDelegate.toggleLeft();
   }
 
+  var filterBarInstance;
+
+   function getVideos () {
+     $http.get("http://mizikjams.com/api/videos.json")
+     .success(function (data) {
+       $scope.videos = data.videos
+     });
+   }
+
+   getVideos();
+
+   $scope.showFilterBar = function () {
+     filterBarInstance = $ionicFilterBar.show({
+       videos: getVideos(),
+       update: function (filteredItems, filterText) {
+         $scope.videos = filteredItems;
+         if (filterText) {
+           console.log(filterText);
+         }
+        filterProperties: ['title', 'band']
+       }
+
+     });
+   };
+
+   $scope.refreshItems = function () {
+     if (filterBarInstance) {
+       filterBarInstance();
+       filterBarInstance = null;
+     }
+
+     $timeout(function () {
+         getVideos();
+         $scope.$broadcast('scroll.refreshComplete');
+       });
+     };
 });
