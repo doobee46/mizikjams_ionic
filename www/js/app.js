@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'jett.ionic.filter.bar'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -18,7 +18,7 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.controller('videoController', function($scope, $http, $ionicSideMenuDelegate, $ionicLoading) {
+.controller('videoController', function($scope, $http, $ionicSideMenuDelegate, $ionicLoading, $ionicFilterBar) {
   $scope.videos = null
 
   $ionicLoading.show({
@@ -26,6 +26,7 @@ angular.module('starter', ['ionic'])
     hideOnStageChange: true
 
   })
+
   $http.get("http://mizikjams.com/api/videos.json?callback=JSON_CALLBACK")
   .success(function (data) {
     $ionicLoading.hide()
@@ -48,6 +49,3 @@ angular.module('starter', ['ionic'])
   }
 
 });
-
-
-

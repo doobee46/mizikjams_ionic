@@ -15,9 +15,14 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
+
+    <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.min.css" rel="stylesheet">
+ <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.min.js"></script>
+
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
@@ -29,7 +34,7 @@
     <button class="icon ion-navicon button button-clear" ng-click="toggleLeft()"></button>
     <h1 class="title"><img class="title-image" src="img/logo.png" alt="logo"></h1>
       <div class="buttons">
-        <button class="button button-clear icon ion-gear-a"></button>
+        <button class="button button-icon ion-android-search" ng-click="showFilterBar()"></button>
       </div>
   </ion-header-bar>
   <ion-header-bar class="bar-subheader">
@@ -95,6 +100,7 @@
       </ion-list>
    </ion-side-menu>
   </ion-side-menus>
+
 
   </body>
 </html>
